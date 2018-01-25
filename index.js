@@ -57,3 +57,25 @@ function foo(arrayOfRawExpressions) {
     });
     return resultArray;
 };
+
+request.get(url, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+    	console.log("**********GET*********");
+    	console.log("Server response payload:");
+    	console.log(body);
+        let parsed = JSON.parse(body);
+        let id = parsed.id;
+        let expressions = parsed.expressions;
+        let results = foo(expressions);
+        let json = {"id": id,"results": results};
+        console.log("**********POST*********");
+        console.log("Server request payload:");
+        console.log(json);
+        request.post({ uri: url, json: json}, function(error, response, body) {
+            if (!error && response.statusCode == 200) {
+            	console.log("Server response payload:");
+            	console.log(body);
+            }
+        });
+    }
+})

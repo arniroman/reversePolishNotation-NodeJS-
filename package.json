@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/arniroman/reversePolishNotation-NodeJS-/issues"
   },
-  "homepage": "https://github.com/arniroman/reversePolishNotation-NodeJS-#readme"
+  "homepage": "https://github.com/arniroman/reversePolishNotation-NodeJS-#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
 }

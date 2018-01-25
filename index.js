@@ -44,3 +44,16 @@ function reversePolishNotation() {
 };
 
 let rpn = reversePolishNotation();
+
+function foo(arrayOfRawExpressions) {
+    let resultArray = [];
+    arrayOfRawExpressions.map((stringWithSpaces) => {
+        return stringWithSpaces.split(" ")
+    }).forEach((arrayOfExpressions) => {
+        arrayOfExpressions.forEach((operatorOrOperand) => {
+            rpn.parseAndCalculate(operatorOrOperand);
+        });
+        resultArray.push(rpn.getRelust());
+    });
+    return resultArray;
+};
